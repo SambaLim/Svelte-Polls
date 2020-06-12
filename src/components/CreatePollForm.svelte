@@ -4,37 +4,30 @@
   let errors = { question: '', answerA: '', answerB: '' };
   let valid = false;
 
-  const submitHandler = () => {
-    valid = true;
+  const lengthValidatior = (fileds, lengths) => {
+    
+    const fieldKeyList = Object.keys(fields);
 
-    // validate question
-    if(fields.question.trim().length < 5) {
-      valid = false;
-      errors.question = 'Question must be at least 5 characters long';
-    } else {
-      errors.question = '';
-    }
+    fieldKeyList.forEach((key, index) => {
+      const value = fileds[key];
+      const validLength = lengths[index] ? lengths[index] : 1;
+      const errorMessage = validLength === 1 ? `${key} cannot be empty` : `${key} must be at least ${validLength} charactors long`;
+      if(value.trim().length < validLength) {
+        valid = false;
+        errors[key] = errorMessage;
+      } else {
+        errors[key] = '';
+      }
+    });
 
-    // validate answer A
-    if(fields.answerA.trim().length < 1) {
-      valid = false;
-      errors.answerA = 'Answer A cannot be empty';
-    } else {
-      errors.answerA = '';
-    }
-
-    // validate answer B
-    if(fields.answerB.trim().length < 1) {
-      valid = false;
-      errors.answerB = 'Answer B cannot be empty';
-    } else {
-      errors.answerA = '';
-    }
-
-    // add new poll
     if(valid) {
       console.log('valid', fields);
     }
+  }
+
+  const submitHandler = () => {
+    valid = true;
+    lengthValidatior(fields, [5, 1, 1]);
   }
 </script>
 
