@@ -5,6 +5,8 @@ degit sveltejs/template polls
 npm install
 ```
 
-## Project Structure
+# Start Project
 
-![](https://i.imgur.com/7ddR9Ub.png)
+```
+npm run dev
+```

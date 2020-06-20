@@ -3,7 +3,7 @@
 
 <header>
   <h3>
-    <img src="/img/logo.svg" alt="Poll Sambalim Logo">
+    <img src="/img/logo.svg" alt="Poll Sambalim Logo" width="300px" height= "100px">
   </h3>
 </header>
 
