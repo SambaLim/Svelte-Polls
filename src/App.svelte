@@ -13,7 +13,16 @@
 		activeItem = e.detail;
 	}
 
-	let polls = [];
+	let polls = [
+		{
+			id: 1,
+			question: 'Javascript or Python',
+			answerA: 'Javascript',
+			answerB: 'Python',
+			votesA: 15,
+			votesB: 9
+		}
+	];
 
 	const handleAdd = (e) => {
 		const poll = e.detail;
